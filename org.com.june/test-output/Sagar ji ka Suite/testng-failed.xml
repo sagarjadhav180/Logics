@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [Sagar ji ka Suite]" parallel="tests">
+  <test thread-count="2" name="chrome test(failed)">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="url" value="https://stag-5-cmo-1.convirza.com/"/>
+    <classes>
+      <class name="tests.Test5">
+        <methods>
+          <include name="setup"/>
+          <include name="test1"/>
+          <include name="tearDown"/>
+          <include name="send_report"/>
+        </methods>
+      </class> <!-- tests.Test5 -->
+    </classes>
+  </test> <!-- chrome test(failed) -->
+</suite> <!-- Failed suite [Sagar ji ka Suite] -->
