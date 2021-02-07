@@ -18,8 +18,8 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import tests.Listener;
-import tests.SendMail;
+//import tests.Listener;
+//import tests.SendMail;
 
 public class TestBase {
 	
@@ -61,9 +61,9 @@ public class TestBase {
 	@AfterSuite
 	public void send_report()throws Exception, ClientProtocolException, IOException{
 		// Get count of passed, failed and skipped test case
-		int [] result = Listener.count_of_test();
+//		int [] result = Listener.count_of_test();
 //		HelperClass.writeExcel(result);
-		SendMail.execute("cfa_api_report.html", result);
+//		SendMail.execute("cfa_api_report.html", result);
 	}
 	
 }

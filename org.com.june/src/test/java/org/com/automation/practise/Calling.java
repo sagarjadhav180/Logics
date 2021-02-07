@@ -67,7 +67,7 @@ public class Calling
 //    	wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='a-box a-color-offset-background']"))));
     	
     	Thread.sleep(5000);
-    	System.out.println("wait "+wait);
+
     	System.out.println("username "+username);    	
     	wait.until(ExpectedConditions.visibilityOf(username));
     	username.sendKeys(user);
@@ -106,7 +106,7 @@ public class Calling
     	 Connection connection=null;
     	 Statement stmpt=null;
     	
-    	 String query="SELECT count(*) as count FROM call WHERE tracking='3852931821' AND call_started>'2020-01-07 23:59'";
+    	 String query="SELECT count(*) as count FROM call WHERE tracking='3018934412' AND call_started>'2020-09-09 23:59'";
     	 
     	String call_count = null;
 		try{

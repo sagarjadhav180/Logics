@@ -27,7 +27,7 @@ public class Test2 extends AllNewLogics
 	
 	}
 	
-	@Test(priority=1)
+
 	public  void test2() throws InterruptedException 
 	{
 

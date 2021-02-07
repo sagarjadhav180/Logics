@@ -1,5 +1,8 @@
 package org.com.automation.practise;
 
+import static org.testng.Assert.ARRAY_MISMATCH_TEMPLATE;
+
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -12,6 +15,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
@@ -25,6 +29,7 @@ import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.TimeZone;
 import java.util.TreeMap;
 
 import org.apache.http.NameValuePair;
@@ -41,6 +46,8 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -93,7 +100,10 @@ public class AllNewLogics
             System.out.println(n + " is a palindrome.");
         else
             System.out.println(n + " is not a palindrome.");
-    }
+	}
+	
+
+	
 
 
 	@Test(enabled=false)
@@ -872,12 +882,12 @@ public class AllNewLogics
 	
 	
 	
-	WebDriver driver ;
+	static WebDriver driver ;
 	WebDriverWait wait;
 	
 	String URL="https://convirza.awsapps.com/auth/?client_id=06919f4fd8ed324e&redirect_uri=https%3A%2F%2Fconvirza.awsapps.com%2Fconnect%2Fauth%2Fcode";
 
-//	
+	
 //	@Parameters({"url","browser"})
 //	@BeforeTest
 	public  void test24(String url,String browser) throws InterruptedException
@@ -890,7 +900,7 @@ public class AllNewLogics
 
 		else if(browser.contains("chrome")){
 
-		System.setProperty("webdriver.chrome.driver", ".//chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", ".//chromedriver_linux");
 		driver=new ChromeDriver();
 		}
 
@@ -1205,7 +1215,136 @@ DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
 		
 	}
 	
+	@Test(enabled=false)
+	public void test36() {
+		
+		List<String> list1=new ArrayList<String>(Arrays.asList("india","ausies","england"));
+		
+		
+		Map<String, List> map = new HashMap<String, List>() {{
+	        put("Group-A", Arrays.asList("sa","NZ","pak"));
+	        put("Group-B", Arrays.asList("india","UK","ausies"));
+	    }};
+		
+	    
+	    map.getOrDefault("GROUP-A", list1);
+	    
+	    
+	}
+	
+	static String[] arr=new String[4];
+	
+	@Test(priority=1,enabled=false)
+	public void test37() {
+		
+		for(int i=1;i<=3;i++) {
+			arr[i]=String.valueOf(i);
+		} 
+		
+	}
+	
+
+	public void test38() {
+		
+		for(int i=1;i<=3;i++) {
+			System.out.println(arr[i]);
+		}
+		
+	}
+	
+	@Test(priority=2,enabled=false)
+	public void test39() {
+		
+		String[] arr2 = Arrays.copyOfRange(arr, 2, 4);
+		
+		for(String one:arr2) {
+			System.out.println(one);
+		}
+		
+	}
+	
+	@Test(enabled=false)
+	public void test40() {
+		
+		String str= "Call flow_id is [41153]";
+		
+		System.out.println(str.replaceAll("\\D", ""));
+		
+	}	
+
+	@Test(enabled=false)
+	public void test41() {
+		
+		JSONObject jo=new JSONObject();
+		jo.put("id", "007");
+		jo.put("name", "jack");
+		
+		jo.forEach((key,value)->{
+			System.out.println(""+key+":"+value);
+			
+		});
+		
+	}
+	
+	
+	@Test(enabled=false)
+	public void test42() {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(new Date());
+		cal.add(Calendar.DATE, 1);
+		SimpleDateFormat dateFormatter = new SimpleDateFormat("YYYY'-'MM'-'dd'T'HH':'mm':'ss'.'SSS'Z'");
+		String futureDate = dateFormatter.format(cal.getTime()).toString();
+		System.out.println(futureDate);
+	}
+
+	@Test(enabled=false)
+	public static void gmtDate(){
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("EST"));
+
+		Calendar cal = Calendar.getInstance();		
+		String name = cal.getTimeZone().getDisplayName();
+	      System.out.println("Current Time Zone:" + name );
+	      TimeZone tz = TimeZone.getTimeZone("EST");
+
+	      // set the time zone with the given time zone value 
+	      // and print it
+	      cal.setTimeZone(tz);
+	      System.out.println(cal.getTimeZone().getDisplayName());
+		
+		cal.add(Calendar.DATE, Integer.valueOf(0));
+		
+		Date todate1 = cal.getTime();
+	    String date = dateFormat.format(todate1);
+
+	    System.out.println(date);
+//	    return date;
+		
+	}
+	
+	public void nonStatic() {
+		staticMethod();
+	}
+	
+	public static void staticMethod() {
+		AllNewLogics al = new AllNewLogics();
+		al.nonStatic();
+	}
+
+	@Test(enabled=true)
+    public static void waitConditionFailed() {
+
+    	System.setProperty("webdriver.chrome.driver", ".//chromedriver_linux");
+		driver=new ChromeDriver();
+    	WebDriverWait wait = new WebDriverWait(driver, 10);
+		driver.get("https://www.google.com");
+//    		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("test")));
+//    	Set<String> id = driver.getWindowHandles();
+		
+		driver.findElement(By.className("test"));
+    }
 	
 }
+
 
 

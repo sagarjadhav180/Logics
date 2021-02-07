@@ -5,8 +5,9 @@
   <meta charset='utf-8'>
   <title>TestNG reports</title>
 
-    <link type="text/css" href="testng-reports.css" rel="stylesheet" />
-    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="testng-reports.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type='text/javascript'>
@@ -23,6 +24,7 @@
   <body>
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
+      <button class="button" id="button">Switch Retro Theme</button> <!-- button -->
       <br/>
       <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
@@ -49,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\Preeti Kotnis\AppData\Local\Temp\testng-eclipse-210747345\testng-customsuite.xml</span>
+                    <span>testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -102,7 +104,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="org.com.automation.practise.Test4" hash-for-method="test22">test22</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="interviewCodes.InterviewCodes" hash-for-method="test37">test37</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -120,14 +122,14 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">org.com.automation.practise.Test4</span>
+              <span class="class-name">interviewCodes.InterviewCodes</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="test22">
-                  </a> <!-- test22 -->
-                  <span class="method-name">test22</span>
+                  <a name="test37">
+                  </a> <!-- test37 -->
+                  <span class="method-name">test37</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -135,16 +137,16 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Preeti Kotnis\AppData\Local\Temp\testng-eclipse-210747345\testng-customsuite.xml</span>
+            <span class="header-content">/tmp/testng-eclipse--181588705/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test thread-count=&quot;5&quot; verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;org.com.automation.practise.Test4&quot;/&gt;
+      &lt;class name=&quot;interviewCodes.InterviewCodes&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -186,14 +188,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'test22')
-data.setCell(0, 2, 'org.com.automation.practise.Test4')
-data.setCell(0, 3, 23);
+data.setCell(0, 1, 'test37')
+data.setCell(0, 2, 'interviewCodes.InterviewCodes')
+data.setCell(0, 3, 13);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 23 ms</span>
+              <span class="suite-total-time">Total running time: 13 ms</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -208,56 +210,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">21 ignored methods</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">org.com.automation.practise.Test4</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">test9</span>
-                <br/>
-                <span class="ignored-method-name">test7</span>
-                <br/>
-                <span class="ignored-method-name">test8</span>
-                <br/>
-                <span class="ignored-method-name">test5</span>
-                <br/>
-                <span class="ignored-method-name">test6</span>
-                <br/>
-                <span class="ignored-method-name">test3</span>
-                <br/>
-                <span class="ignored-method-name">test4</span>
-                <br/>
-                <span class="ignored-method-name">test20</span>
-                <br/>
-                <span class="ignored-method-name">test13</span>
-                <br/>
-                <span class="ignored-method-name">test12</span>
-                <br/>
-                <span class="ignored-method-name">test11</span>
-                <br/>
-                <span class="ignored-method-name">test10</span>
-                <br/>
-                <span class="ignored-method-name">test21</span>
-                <br/>
-                <span class="ignored-method-name">test17</span>
-                <br/>
-                <span class="ignored-method-name">test16</span>
-                <br/>
-                <span class="ignored-method-name">test15</span>
-                <br/>
-                <span class="ignored-method-name">test14</span>
-                <br/>
-                <span class="ignored-method-name">test1</span>
-                <br/>
-                <span class="ignored-method-name">test2</span>
-                <br/>
-                <span class="ignored-method-name">test19</span>
-                <br/>
-                <span class="ignored-method-name">test18</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -266,9 +221,9 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">org.com.automation.practise.Test4</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">interviewCodes.InterviewCodes</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">test22</span>
+                <span class="method-name">test37</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -276,4 +231,5 @@ return data;
       </div> <!-- main-panel-root -->
     </div> <!-- wrapper -->
   </body>
+<script type="text/javascript" src="testng-reports2.js"></script>
 </html>

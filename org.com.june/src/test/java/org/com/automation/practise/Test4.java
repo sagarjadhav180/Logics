@@ -482,12 +482,21 @@ public class Test4 {
 	}
 	
 	
-	@Test(enabled=true)
+	@Test(priority=1,enabled=false)
 	public void test23(){
 		
+		AllNewLogics an=new AllNewLogics();
+		an.test37();
+		   
 	}	
 	
-	
+	@Test(priority=12,enabled=false)
+	public void test24(){
+		
+		AllNewLogics an=new AllNewLogics();
+		an.test38(); 
+		
+	}	
 	
 	
 }

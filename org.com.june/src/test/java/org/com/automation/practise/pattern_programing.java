@@ -143,7 +143,7 @@ public class pattern_programing {
 		public void test7(){
 			
 			int rows=7;
-			int count=7;
+//			int count=7;
 			
 			for(int i=1;i<rows+1;i++){
 				for(int j=7;j>i-1;j--){
@@ -152,7 +152,7 @@ public class pattern_programing {
 				}
 
 				System.out.println();
-				count--;
+//				count--;
 				
 				
 			}
