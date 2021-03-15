@@ -5,7 +5,7 @@
     <classes>
       <class name="interviewCodes.InterviewCodes">
         <methods>
-          <include name="test2"/>
+          <include name="test98"/>
         </methods>
       </class> <!-- interviewCodes.InterviewCodes -->
     </classes>

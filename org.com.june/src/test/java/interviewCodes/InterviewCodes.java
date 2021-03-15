@@ -17,6 +17,9 @@ import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -33,8 +36,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.logging.LogType;
+import org.openqa.selenium.logging.LoggingPreferences;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -389,11 +397,13 @@ public class InterviewCodes {
 	}
 	
 	
-	// Write a Java Program to remove all alphas from a string with using replace().
+	// Write a Java Program to remove all alphas/numbers from a string with using replace().
 //	@Test
 	public void test20() {
-		String str = "Ha456ello World13 ";
-		System.out.println(str.replaceAll("\\D", ""));		
+		String str = "100%";
+		
+		System.out.println(str.replaceAll("\\D", ""));	//---get only digits
+		System.out.println(str.replaceAll("\\d", ""));	//---get only alphas	
 	}
 	
 	
@@ -685,7 +695,7 @@ public class InterviewCodes {
 		//get connection and store it in Connection
 		Connection connection = DriverManager.getConnection("dbUrl","username","password");
 		
-		//loading the jdbc driver
+		//register the jdbc driver
 		Class.forName("org.postgresql.Driver");
 		
 		//calling createStatement()
@@ -748,7 +758,21 @@ public class InterviewCodes {
 		System.out.println(flag);
 	} 		
 	
-    	
+	//write a code to check if array has all same objects
+//	@Test
+	public void test38() {
+		
+		List<String> list  =new ArrayList<String>(Arrays.asList("bing","bing","bing","bing"));
+
+		Boolean flag;
+		
+		if(Collections.frequency(list, "bing")==list.size()) {
+			flag = true;
+		}else {
+			flag = false;
+		}
+		System.out.println(flag);
+	} 		    	
 	
 	
 	
@@ -797,17 +821,90 @@ public class InterviewCodes {
 	
 	
 	
+//	@Test(enabled=true)
+	public void testApp() throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", ".//chromedriver_linux");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		
+		driver.get("http://tutorialsninja.com/demo/index.php");
+
+		WebElement myaccount=driver.findElement(By.xpath("//*[contains(@title,'My Account')]"));
+		Actions act=new Actions(driver);
+		act.moveToElement(myaccount).click().perform();
+		act.moveToElement(driver.findElement(By.partialLinkText("Login"))).click().perform();
+
+		driver.findElement(By.id("input-email")).sendKeys("sct.test@grr.la");
+		driver.findElement(By.id("input-password")).sendKeys("SCT@123");
+		driver.findElement(By.xpath("//input[@value='Login']")).click();
+
+		driver.findElement(By.xpath("//*[contains(@class,'fa fa-home')]")).click();
+
+		WebElement Feature=driver.findElement(By.xpath("//h3[text()='Featured']"));
+		JavascriptExecutor jse=(JavascriptExecutor) driver;
+		jse.executeScript("arguments[0].scrollIntoView()",Feature);
+
+
+
+		jse.executeScript("window.scrollTo(0,-document.body.scrollHeight);");
+		WebElement LaptopsNotebooks=driver.findElement(By.xpath("//a[text()='Laptops & Notebooks']"));
+		WebElement AllLaptopsNotebooks=driver.findElement(By.xpath("//a[text()='Show All Laptops & Notebooks']"));
+		act.moveToElement(LaptopsNotebooks).build().perform();
+		act.moveToElement(AllLaptopsNotebooks).click().perform();
+
+
+		Thread.sleep(2000);
+		WebElement SortBy=driver.findElement(By.xpath("//select[@id='input-sort']"));
+		Select select = new Select(SortBy);
+		select.selectByVisibleText("Price (High > Low)");
+		Thread.sleep(2000);
+		
+		WebElement addToCart = driver.findElement(By.xpath("//div[@class='caption']//a[text()='MacBook Pro']//ancestor::div[@class='caption']//following-sibling::div//button//span[text()='Add to Cart']/.."));
+		addToCart.click();
+		Thread.sleep(2000);
+		driver.switchTo().alert().accept();
+		
+		driver.quit();
+
+	}
 	
 	
+	@Test
+	public void test96() {
+		int totalPeople = 1100;
+		int heads = 0;
+		int tails = 0;
+		
+		for(int i=1;i<=totalPeople;i++) {
+			if(i==1) 
+				heads = 1100;
+			if(i%2==0) {
+				heads--;
+				tails++;
+			}
+				
+		}
+		System.out.println("heads count is "+heads);
+		System.out.println("tails count is "+tails);
+	}
+
+	
+	//get email id from random string
+//	@Test
+	public void test97() {
+		List<String> identifiedAgentsFromUI;
+		 String s = "a i | ai@yopmail.com";
+		    Matcher m = Pattern.compile("[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+").matcher(s);
+		    while (m.find()) {
+		    	String id = m.group();
+		        System.out.println(id);
+		    }
+		    
+	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	
