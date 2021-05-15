@@ -1,5 +1,6 @@
 package org.com.automation.practise;
 
+import org.testng.annotations.Test;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -60,7 +61,8 @@ public class Calling
 
 	
 	
-        public void test1() throws InterruptedException {
+        @Test
+		public void test1() throws InterruptedException {
         
 
     			

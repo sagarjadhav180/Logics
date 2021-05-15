@@ -1,5 +1,7 @@
 package org.com.automation.practise;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import static org.testng.Assert.ARRAY_MISMATCH_TEMPLATE;
 
 import java.io.BufferedReader;
@@ -325,7 +327,7 @@ public class AllNewLogics
 		 }
 		 
 		 
-		 Assert.assertEquals(arr2.toString(),"unprovisioned");
+		 AssertJUnit.assertEquals(arr2.toString(),"unprovisioned");
 		 
 		 try{
 			  stmpt.executeQuery(getNumbersQuery1);
@@ -856,7 +858,7 @@ public class AllNewLogics
 		String str1="Object 1";
 		String str2="Object 2";
 		
-		Assert.assertEquals(str1, str2,"str1 not matching with str2");
+		AssertJUnit.assertEquals(str1, str2,"str1 not matching with str2");
 	}
 	
 	
@@ -890,6 +892,7 @@ public class AllNewLogics
 	
 //	@Parameters({"url","browser"})
 //	@BeforeTest
+	@Test
 	public  void test24(String url,String browser) throws InterruptedException
 	{
 
@@ -939,7 +942,7 @@ public void teardown(){
 	WebElement username = driver.findElement(By.xpath("//input[@id='email']"));
 	try{
 		wait.until(ExpectedConditions.visibilityOf(username));
-		Assert.assertTrue(username.isDisplayed());
+		AssertJUnit.assertTrue(username.isDisplayed());
 	}
 	catch(Exception e){
 		e.printStackTrace();
@@ -1037,7 +1040,7 @@ public void teardown(){
 			for(int j=0;j<default_selected_Expected_Column_Picker_options.length;){
 				if(Expected_Column_Picker_options_labels[i].equals(default_selected_Expected_Column_Picker_options[j])){
 					System.out.println("matching");
-					Assert.assertTrue(Expected_Column_Picker_options_labels[i].equals(default_selected_Expected_Column_Picker_options[j]));
+					AssertJUnit.assertTrue(Expected_Column_Picker_options_labels[i].equals(default_selected_Expected_Column_Picker_options[j]));
 					j++; 
 				}
 				else{System.out.println("not matching");  j++;;}
@@ -1206,6 +1209,7 @@ DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
 	}
 	
 	
+	@Test
 	public static void test35(String st2){
 		
 		String str2="java";
@@ -1244,6 +1248,7 @@ DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
 	}
 	
 
+	@Test
 	public void test38() {
 		
 		for(int i=1;i<=3;i++) {
@@ -1342,6 +1347,7 @@ DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
 //    	Set<String> id = driver.getWindowHandles();
 		
 		driver.findElement(By.className("test"));
+		
     }
 	
 }

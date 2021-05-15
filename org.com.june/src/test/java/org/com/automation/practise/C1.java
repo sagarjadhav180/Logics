@@ -1,5 +1,7 @@
 package org.com.automation.practise;
 
+import org.testng.annotations.Test;
+
 public class C1 {
 	
 	
@@ -13,6 +15,7 @@ public class C1 {
 		C1.campaign_id = campaign_id;
 	}
 
+	@Test
 	public static void test(){
 		System.out.println("campaign Id is "+campaign_id);
 	}

@@ -1,5 +1,7 @@
 package org.com.automation.practise;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -60,7 +62,7 @@ public class test6 {
 		 try {
 		 //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='dashboard-filter-section']/div[1]/div[2]/div[1]/button")));
 		 WebElement Run_btn = driver.findElement(By.xpath("//*[@id='dashboard-filter-section']/div[1]/div[2]/div[1]/button"));
-		 Assert.assertTrue( Run_btn.isDisplayed(),"Btn Not displayed");
+		 AssertJUnit.assertTrue( Run_btn.isDisplayed());
 		 
 		 }
 		 catch (Exception e) {

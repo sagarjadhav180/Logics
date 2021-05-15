@@ -1,5 +1,6 @@
 package org.com.automation.practise;
 
+import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 

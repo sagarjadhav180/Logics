@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="46" total="48" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="68" started-at="2021-03-11T14:37:32 IST" finished-at="2021-03-11T14:37:32 IST">
+  <suite name="Suite" duration-ms="244" started-at="2021-04-29T15:39:18 IST" finished-at="2021-04-29T15:39:18 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="68" started-at="2021-03-11T14:37:32 IST" finished-at="2021-03-11T14:37:32 IST">
-      <class name="interviewCodes.InterviewCodes">
-        <test-method status="PASS" signature="test96()[pri:0, instance:interviewCodes.InterviewCodes@d6da883]" name="test96" duration-ms="12" started-at="2021-03-11T14:37:32 IST" finished-at="2021-03-11T14:37:32 IST">
+    <test name="Test1" duration-ms="106" started-at="2021-04-29T15:39:18 IST" finished-at="2021-04-29T15:39:18 IST">
+      <class name="interviewCodes.PatternPrograms">
+        <test-method status="PASS" signature="test43()[pri:0, instance:interviewCodes.PatternPrograms@12028586]" name="test43" duration-ms="15" started-at="2021-04-29T15:39:18 IST" finished-at="2021-04-29T15:39:18 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test96 -->
-      </class> <!-- interviewCodes.InterviewCodes -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- test43 -->
+      </class> <!-- interviewCodes.PatternPrograms -->
+    </test> <!-- Test1 -->
+    <test name="Test2" duration-ms="10" started-at="2021-04-29T15:39:18 IST" finished-at="2021-04-29T15:39:18 IST">
+      <class name="interviewCodes.PatternPrograms">
+        <test-method status="PASS" signature="test43()[pri:0, instance:interviewCodes.PatternPrograms@6b67034]" name="test43" duration-ms="6" started-at="2021-04-29T15:39:18 IST" finished-at="2021-04-29T15:39:18 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test43 -->
+      </class> <!-- interviewCodes.PatternPrograms -->
+    </test> <!-- Test2 -->
+  </suite> <!-- Suite -->
 </testng-results>

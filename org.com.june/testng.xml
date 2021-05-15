@@ -1,31 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
 
-<suite name="Sagar ji ka Suite" parallel="tests" thread-count="2">
-
-
-	<test name="chrome test" preserve-order="true" parallel="false">
-
-
-		<groups>
-			<run>
-				<exclude name="group a"></exclude>
-			</run>
-
-		</groups>
-
+	<test thread-count="1" name="Test1" parallel="tests">
 		<classes>
-
-
-			<class name="interviewCodes.InterviewCodes">
-
-
+			<class name="interviewCodes.PatternPrograms">
+				<methods>
+					<include name="test43"></include>
+				</methods>
 			</class>
-
 		</classes>
 	</test> <!-- Test -->
 
-
-
+	<test thread-count="1" name="Test2" parallel="tests">
+		<classes>
+			<class name="interviewCodes.PatternPrograms">
+				<methods>
+					<include name="test43"></include>
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
 
 </suite> <!-- Suite -->

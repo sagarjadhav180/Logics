@@ -1,5 +1,7 @@
 package tests;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -26,12 +28,13 @@ public class Test5 extends TestBase
 		test=extent.startTest("test1");
 		test.log(LogStatus.PASS, "test1 running--first log", "first log");
 		System.out.println("test 1 started.......");
-		Assert.fail();
+		AssertJUnit.fail();
 		test.log(LogStatus.FAIL, "Assertion error"); 
 		System.out.println("--------------------------------");
 	}
 	
 	
+	@Test
 	public void test2(List nvps) throws URISyntaxException{
 		
 		URI uri = new URIBuilder()

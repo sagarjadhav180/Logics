@@ -1,6 +1,7 @@
 package org.com.automation.practise;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 
 public class test111 {
 

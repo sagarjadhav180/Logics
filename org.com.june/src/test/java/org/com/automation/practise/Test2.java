@@ -1,5 +1,6 @@
 package org.com.automation.practise;
 
+import org.testng.annotations.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -10,6 +11,7 @@ public class Test2 extends AllNewLogics
 {
 //
 //	@Test(priority=1)
+	@Test
 	public  void test1() throws InterruptedException
 	{
 
@@ -28,6 +30,7 @@ public class Test2 extends AllNewLogics
 	}
 	
 
+	@Test
 	public  void test2() throws InterruptedException 
 	{
 

@@ -1,5 +1,7 @@
 package org.com.automation.practise;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -61,6 +63,7 @@ public Test3 (WebDriver driver,WebDriverWait wait){
 	}
 	
 	
+	@Test
 	public void test007() throws InterruptedException {
 JavascriptExecutor jse=(JavascriptExecutor)driver;
 //		
@@ -72,7 +75,7 @@ JavascriptExecutor jse=(JavascriptExecutor)driver;
 //		Thread.sleep(2000);
 		try{
 			wait1.until(ExpectedConditions.visibilityOf(username));
-			Assert.assertTrue(username.isDisplayed());
+			AssertJUnit.assertTrue(username.isDisplayed());
 			username.sendKeys("ganesh5@yopmail.com");
 		}
 		catch(Exception e){
@@ -80,7 +83,7 @@ JavascriptExecutor jse=(JavascriptExecutor)driver;
 		}
 		try{
 			wait1.until(ExpectedConditions.visibilityOf(password));
-			Assert.assertTrue(password.isDisplayed());
+			AssertJUnit.assertTrue(password.isDisplayed());
 			password.sendKeys("lmc2demo");
 		}
 		catch(Exception e){

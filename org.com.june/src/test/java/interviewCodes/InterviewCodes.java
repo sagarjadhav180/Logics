@@ -1,5 +1,7 @@
 package interviewCodes;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -45,6 +47,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
@@ -62,13 +65,20 @@ import java.time.Duration;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class InterviewCodes {
+public abstract  class InterviewCodes {
 
 	WebDriver driver;
 	
-	//write code to reverse string without using string inbuilt function
+	//abstract class can have any access specifier
+	public int i;
+	private int o;
+	protected int p;
+	
+	
+	
+	//write code to reverse string 
 //	@Test(groups= {"group a"})
-	public void test1() {
+	public void test1() throws  Exception {
 		
 		String str = "Hello World";
 		
@@ -85,8 +95,8 @@ public class InterviewCodes {
 		
 		char[] chars = str.toCharArray();
 		
-		for(int i=chars.length;i>=0;i--) {
-			System.out.print(chars[i]);
+		for(int i=chars.length;i>0;i--) {
+			System.out.print(chars[i-1]);
 		}
 	}
 	
@@ -410,17 +420,15 @@ public class InterviewCodes {
 	// Write a Java Program to remove all white spaces from a string without using replace(). -- not working
 //	@Test
 	public void test21() {
-		String str = "Hello World ";
+        String str = "Hello World ";
 		
-		StringBuilder stb = new StringBuilder();
-		char[] chars = str.toCharArray();
+	    char[] arr = str.toCharArray();
 		
-		for(int i=0;i<chars.length;i++) {
-			if(!String.valueOf(chars[i]).isEmpty()) {
-				stb.append(chars[i]);	
-			}
-		}
-		System.out.println(stb);
+	    for(char one:arr) {
+	    	if(one!= ' ') {
+	    		System.out.print(one);
+	    	}
+	    }
 	}
 	
 	
@@ -773,54 +781,86 @@ public class InterviewCodes {
 		}
 		System.out.println(flag);
 	} 		    	
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	*####
-//	###**
-//	***##
+	//write a code to check equality of string literal
 //	@Test
-	public void test95() {
+	public void test39() {
 		
-		int rows = 3;
-		int star = 1;
-		int hash = 4;
+		String str1 = "true";
+		String str2 = "true";
 		
-		for(int i=1;i<=rows;i++) {
-			if(i%2==0) {
-				for(int j=1;j<=hash;i++) {
-					System.out.print("#");	
-				}
-			}
-			else {
-				for(int j=1;j<=star;j++) {
-					System.out.print("*");	
-				}
-			}
-			star++;
-			hash--;
-			System.out.println();
-		}
+		System.out.println(str1.equals(str2)); //--will return true
+		
+		System.out.println(str1==str2); //--will return true
+	}
+	
+	//write a code to check equality of string object
+//	@Test
+	public void test40() {
+		
+		String str1 = new String("true");
+		String str2 = new String("true");
+		
+		System.out.println(str1==str2); //will return false
+		System.out.println(str1.equals(str2)); //will return true
 		
 	}
 	
 	
+	//write a java code to fetch only consecutive digits and add them
+	//expected output  abv10efdde10sdfsdf10ss  ==>10+10+10
+	//	@Test 
+    public void test41() {
+    	String str = "abv10efdde10sdfsdf10ss";
+    	
+    	str = str.replaceAll("\\D", " ");
+		
+    	
+    	str = str.replaceAll("\\s{2,}", " ").trim();
+    	
+    	System.out.println(str);
+    	
+    
+    	String[] arr = str.split(" ");
+    	
+    	System.out.println(arr);
+    	
+    	int addition = 0;
+    	
+    	for(int i=0;i<arr.length;i++) {
+    		addition = addition + Integer.parseInt(arr[i]);
+    	}
+    	
+    	
+    	System.out.println(addition);
+	}
+    
+
+	int counter;
+//    @Test
+    public void test42() {
+    	
+    	String str1 = new String("java");
+    	String str2 = new String("mava");
+    	
+    	try {
+    		counter++;
+    		if(str1!=str2)
+    			throw new Exception();
+    	}catch(Exception e) {
+    		if(counter<10)
+    			test42();
+    	}
+    }
 	
-	
+    
+    @Test
+    public void test43() {
+    	
+    	System.out.println("test43");
+    }
+		
 //	@Test(enabled=true)
 	public void testApp() throws InterruptedException {
 		
@@ -870,7 +910,7 @@ public class InterviewCodes {
 	}
 	
 	
-	@Test
+//	@Test
 	public void test96() {
 		int totalPeople = 1100;
 		int heads = 0;
@@ -904,12 +944,65 @@ public class InterviewCodes {
 	}
 	
 	
+	//Write java code to remove all special character from String
+//	@Test
+	public void test98() {
+		String arr= "['SpamGuardComponent', 'HIPPAComponent']";
+		
+		System.out.println(arr);
+		
+		arr = arr.replaceAll("[^a-zA-Z0-9]", " ");
+		
+		System.out.println(arr);
+		
+		String[]  arr1 = arr.split(" ");
+		
+		
+		 System.out.println(arr1);
+		System.out.println("-------------------------");
+		for(String str:arr1) {
+			System.out.println(str.trim());
+		}
+		System.out.println("-------------------------");		
+	}
+	
+	
+	//Write java code for throw keyword
+	@Test
+	public void test99(int age) {  
+		
+		if(age<18)
+			throw new ArithmeticException("Access denied");
+		else
+			System.out.println("access granted");
+	}
+	
+	//Write java code for throw keyword
+//	@Test
+	public void test100() {
+		test99(19);
+	}
+	
 
+	//abstract methods can have only public and protected access specifiers
+	public abstract void test101(); 	
+	public abstract void test103(); 
 	
+//	@Test
+	public void test102() {
+		try {
+			String str = "tr";
+			String str1 = "ty";
+			
+			failing("true", "tru");
+		}catch(Exception e) {
+			failing("true", "true");			
+		}
+	}
 	
-	
-	
-	
+	public void failing(String actual, String expected) {
+		Assert.assertEquals(actual, expected);
+	}
 	
 	
 	
@@ -920,6 +1013,8 @@ public class InterviewCodes {
 		return cube;
 		
 	}
+	
+	
 	
 	
 	

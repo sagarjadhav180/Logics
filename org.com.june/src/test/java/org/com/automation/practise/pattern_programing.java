@@ -1,6 +1,7 @@
 package org.com.automation.practise;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 
 public class pattern_programing {
 
@@ -205,7 +206,7 @@ public class pattern_programing {
 		public void test10(){
 			
 			int rows=7;
-			int count=1;
+			int count=1; 
 			int cl=7;
 			
 			for(int i=1;i<rows+1;i++){
@@ -225,7 +226,7 @@ public class pattern_programing {
 			int rows=7;
 			int count_a=1; 
 			int count_b=0;
-			for(int i=1;i<rows+1;i++){
+			for(int i=1;i<=rows;i++){
 				
 				for(int j=1;j<count_a+1;j++){
 					System.out.print(j); 
@@ -474,7 +475,7 @@ public class pattern_programing {
 		}		
 		
 
-		@Test(enabled=false)
+		@Test(enabled=true)
 		public void test22(){
 			int rows=7;
 			int count=1;
@@ -488,7 +489,7 @@ public class pattern_programing {
 			}
 		}
 		
-		@Test(enabled=true)
+		@Test(enabled=false)
 		public void test23(){
 			int rows=5;
 			int count=1;
