@@ -3,7 +3,12 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="interviewCodes.InterviewCodes"/>
+      <class name="interviewCodes.InterviewCodes">
+      <methods>
+      <include name="test51"></include>
+      </methods>
+      </class>
+      
       
     </classes>
   </test> <!-- Test -->

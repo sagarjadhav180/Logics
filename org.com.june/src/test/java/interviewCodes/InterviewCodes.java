@@ -1,11 +1,16 @@
 package interviewCodes;
 
 import org.testng.annotations.Test;
+import org.yaml.snakeyaml.Yaml;
 import org.testng.AssertJUnit;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -29,6 +34,11 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.type.TypeReference;
+import org.json.simple.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -408,12 +418,13 @@ public abstract  class InterviewCodes {
 	
 	
 	// Write a Java Program to remove all alphas/numbers from a string with using replace().
-//	@Test
+	@Test
 	public void test20() {
 		String str = "100%";
-		
+		System.out.println(str);
 		System.out.println(str.replaceAll("\\D", ""));	//---get only digits
 		System.out.println(str.replaceAll("\\d", ""));	//---get only alphas	
+		System.out.println(str);
 	}
 	
 	
@@ -706,6 +717,7 @@ public abstract  class InterviewCodes {
 		//register the jdbc driver
 		Class.forName("org.postgresql.Driver");
 		
+		
 		//calling createStatement()
 		Statement stmpt = connection.createStatement();
 		
@@ -855,12 +867,263 @@ public abstract  class InterviewCodes {
     }
 	
     
-    @Test
+//    @Test
     public void test43() {
     	
     	System.out.println("test43");
     }
+    
+    
+    //Write a java code to print numbers from 1 to 100 without using loops and recursion
+//    @Test
+    public void test44() {
+    	Object[] num = new Object[100];
+    	
+    	Arrays.fill(num, new Object() {
+    		int count = 0;
+    		public String toString() {
+    			count++;
+    			return Integer.toString(count);
+    		}
+    	});
+    	System.out.println(Arrays.toString(num));
+    }
 		
+    
+    //write a java code to read data from yaml file
+//    @Test
+    public void test45() throws FileNotFoundException {
+    	Yaml yaml= new Yaml();
+    	
+    	InputStream inputstream = new FileInputStream(new File(System.getProperty("user.dir")+File.separator+"config.yaml"));
+    	
+    	Map<String,Object> map = yaml.load(inputstream);
+    	
+    	Map<String,Object>  avengers = (Map<String,Object>) map.get("convirza");
+    	
+
+    	System.out.println(avengers);
+    	
+    }
+    
+    //write a java code to write data into yaml file
+//    @Test
+    public void test46() throws IOException {
+        Yaml yaml= new Yaml();
+        
+        Map<String, Object> map1 = new HashMap<String, Object>();
+        
+        InputStream inputstream = new FileInputStream(new File(System.getProperty("user.dir")+File.separator+"config.yaml"));
+    	
+    	map1 = yaml.load(inputstream);
+    	
+    	Map<String,Object>  convirza = (Map<String,Object>) map1.get("convirza");
+        
+    	Map<String,Object>  blacklisted_number = (Map<String,Object>)convirza.get("blacklisted_number");
+    	
+    	Map<String,Object> number = (Map<String,Object>)blacklisted_number.get("agency");
+    	
+    	
+    	number.put("number", "1234567891");
+        
+    	Map<String,Object>  updated_yaml = new HashMap<String, Object>(); 	
+    	
+    	updated_yaml.put("convirza", convirza);
+    	
+        String data = yaml.dump(updated_yaml);
+        
+//    	OutputStream outputstream = new FileOutputStream(new File(System.getProperty("user.dir")+File.separator+"config.yaml"));
+    	FileWriter writer = new FileWriter(new File(System.getProperty("user.dir")+File.separator+"config.yaml")); 
+    	writer.write(data);
+    	writer .close();
+    	
+    }
+    
+    
+    //Write a java code to write yaml file into POJO class 
+//    @Test
+    public void test47() throws JsonParseException, JsonMappingException, IOException {
+        Yaml yaml= new Yaml();
+    	
+    	InputStream inputstream = new FileInputStream(new File(System.getProperty("user.dir")+File.separator+"config.yaml"));
+    	
+    	Map<String,Object> map1 = yaml.load(inputstream);
+    	
+    	System.out.println(map1);
+    	
+    	Map<String,Object> map2 = (Map<String, Object>) map1.get("convirza");
+    	
+    	Map<String,Object> map3 = (Map<String, Object>) map2.get("group");
+    	
+    	Map<String,Object> map = (Map<String, Object>) map3.get("agency");
+    	
+    	JSONObject json = new JSONObject();
+    	
+    	for(String key:map.keySet()) {
+    		Object value = map.get(key);
+    		json.put(key, value);
+    	}
+    	
+    	ObjectMapper mapper = new ObjectMapper();
+
+    	PostGroupRequest postGroupRequest = new PostGroupRequest();
+    	
+    	postGroupRequest= mapper.readValue(json.toString(), PostGroupRequest.class);
+    	
+
+    	System.out.println(postGroupRequest);
+    	
+    	String jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(postGroupRequest);
+    	System.out.println(jsonString);
+    }
+
+    
+    //Write a java code to write POJO class file into yaml 
+//    @Test
+    public void test48() throws JsonParseException, JsonMappingException, IOException {
+        Yaml yaml= new Yaml();
+    	
+    	InputStream inputstream = new FileInputStream(new File(System.getProperty("user.dir")+File.separator+"config.yaml"));
+    	
+    	Map<String,Object> map1 = yaml.load(inputstream);
+    	
+    	System.out.println(map1);
+    	
+    	Map<String,Object> map2 = (Map<String, Object>) map1.get("convirza");
+    	
+    	Map<String,Object> map3 = (Map<String, Object>) map2.get("group");
+    	
+    	Map<String,Object> map = (Map<String, Object>) map3.get("agency");
+    	
+    	JSONObject json = new JSONObject();
+    	
+    	for(String key:map.keySet()) {
+    		Object value = map.get(key);
+    		json.put(key, value);
+    	}
+    	
+    	ObjectMapper mapper = new ObjectMapper();
+
+    	PostGroupRequest postGroupRequest = new PostGroupRequest();
+    	
+    	postGroupRequest= mapper.readValue(json.toString(), PostGroupRequest.class);
+    	
+    	
+    	postGroupRequest.setGroup_id(25056);
+    	postGroupRequest.setAddress("pune-lake town");
+    	postGroupRequest.setGroup_ext_id("123abcdefghi");
+    	
+    	String jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(postGroupRequest);
+    	System.out.println(jsonString);
+    	
+    	map.putAll(postGroupRequest.getMapObject());
+    	
+    	System.out.println("--------------");
+    	System.out.println(map);
+    	System.out.println("--------------");
+    	
+        
+    	
+    	Map<String,Object>  updated_yaml = new HashMap<String, Object>();
+    	
+    	updated_yaml.put("convirza", map2);
+    	
+    	String updatedYAML = yaml.dump(updated_yaml);
+    	FileWriter writer = new FileWriter(new File(System.getProperty("user.dir")+File.separator+"config.yaml")); 
+    	writer.write(updatedYAML);
+    	
+    	writer .close();
+    }
+    
+    
+//    @Test
+    public void test49() {
+    	System.setProperty("webdriver.chrome.driver", ".//chromedriver_linux");
+		driver = new ChromeDriver();
+		
+		driver.get("https://compare-staging.patientpop.com/checkup");
+		
+		
+		WebElement input = driver.findElement(By.xpath("//input[@name='practicename']"));
+		input.sendKeys("amersi");
+		
+		List<WebElement> options = driver.findElements(By.xpath("//input[@name='practicename']//ancestor::div[@id='app']//..//div[@class='pac-container pac-logo']//div[@class='pac-item']//span[contains(text(),'USA')]"));
+		
+		String address = "North Atherton Street, State College, PA, USA";
+		
+		for(WebElement option:options) {
+			System.out.println(option.getText());
+			if(option.getText().equals(address)) {
+				option.click();
+				break;
+			}else
+				continue;
+		}
+		
+    }
+    
+    //Write a java code to move all even at left and odd at right using collection
+//    @Test
+    public void test50() {
+		
+		int[] arr = {1,5,4,7,9,8,2};
+		
+		List<Integer> even = new ArrayList<Integer>();
+		List<Integer> odd = new ArrayList<Integer>();
+		List<Integer> updated = new ArrayList<Integer>();
+		
+		
+		for(int i=0;i<arr.length;i++) {
+			if(arr[i]%2==0) {
+				even.add(arr[i]);
+			}else {
+				odd.add(arr[i]);
+			}
+		}
+
+		updated.addAll(odd);
+		updated.addAll(even);
+		System.out.println(updated);
+    }
+
+    
+    //Write a java code to move all even at left and odd at right without using collection
+//    @Test
+    public void test51() {
+        
+    	int[] arr = {2,5,4,7,9,8,1};
+		int moves = 0;
+		
+		System.out.println(Arrays.toString(arr));
+		
+		int left = 0;
+		int right = arr.length-1;
+		
+		for(int i=0;i<arr.length;i++) {
+			
+			while(arr[left]%2==0) {
+				left++;
+			}
+			while(arr[right]%2!=0) {
+				right--;
+			}
+		
+			if(left<right) {
+				moves++;
+				int temp = arr[left];
+				arr[left] = arr[right];
+				arr[right] = temp;
+				continue;
+			}else
+				break;
+		}
+
+		System.out.println("moves are "+moves);
+		
+		System.out.println(Arrays.toString(arr));
+    }
+
+    
 //	@Test(enabled=true)
 	public void testApp() throws InterruptedException {
 		

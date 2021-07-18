@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="46" total="48" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="244" started-at="2021-04-29T15:39:18 IST" finished-at="2021-04-29T15:39:18 IST">
+  <suite name="Default suite" duration-ms="58" started-at="2021-07-17T15:56:14 IST" finished-at="2021-07-17T15:56:14 IST">
     <groups>
     </groups>
-    <test name="Test1" duration-ms="106" started-at="2021-04-29T15:39:18 IST" finished-at="2021-04-29T15:39:18 IST">
-      <class name="interviewCodes.PatternPrograms">
-        <test-method status="PASS" signature="test43()[pri:0, instance:interviewCodes.PatternPrograms@12028586]" name="test43" duration-ms="15" started-at="2021-04-29T15:39:18 IST" finished-at="2021-04-29T15:39:18 IST">
+    <test name="Default test" duration-ms="58" started-at="2021-07-17T15:56:14 IST" finished-at="2021-07-17T15:56:14 IST">
+      <class name="sortAlgorithms.BubbleSort">
+        <test-method status="PASS" signature="test1()[pri:0, instance:sortAlgorithms.BubbleSort@33b37288]" name="test1" duration-ms="10" started-at="2021-07-17T15:56:14 IST" finished-at="2021-07-17T15:56:14 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test43 -->
-      </class> <!-- interviewCodes.PatternPrograms -->
-    </test> <!-- Test1 -->
-    <test name="Test2" duration-ms="10" started-at="2021-04-29T15:39:18 IST" finished-at="2021-04-29T15:39:18 IST">
-      <class name="interviewCodes.PatternPrograms">
-        <test-method status="PASS" signature="test43()[pri:0, instance:interviewCodes.PatternPrograms@6b67034]" name="test43" duration-ms="6" started-at="2021-04-29T15:39:18 IST" finished-at="2021-04-29T15:39:18 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test43 -->
-      </class> <!-- interviewCodes.PatternPrograms -->
-    </test> <!-- Test2 -->
-  </suite> <!-- Suite -->
+        </test-method> <!-- test1 -->
+      </class> <!-- sortAlgorithms.BubbleSort -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
