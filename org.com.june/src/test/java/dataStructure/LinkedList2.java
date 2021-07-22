@@ -13,16 +13,10 @@ public class LinkedList2 {
 	public void addFromFront(int data) {
 		Node node = new Node(data);
 
-		System.out.println("for current opration before addition head --> "+head);
-		System.out.println("for current add operation node next --> "+node.getNext());
-		
 		//setting tail of the list 
 		node.setNext(head);
 		
 		head = node;
-		
-		System.out.println("for next add operation node next --> "+node.getNext());
-		System.out.println("for current opration after addition head --> "+head);
 		
 	}
 	
@@ -62,4 +56,22 @@ public class LinkedList2 {
 		}
 		return head;
 	}
+	
+	public boolean getNode(int val) {
+		
+		Node current = head;
+		
+		while(current != null && current.getData() != val ) {
+			current = current.getNext();
+		}
+		
+		if(current != null && current.getData() == val) {
+			return true;
+		}else {
+			return false;
+		}
+		
+		
+	}
+	
 }

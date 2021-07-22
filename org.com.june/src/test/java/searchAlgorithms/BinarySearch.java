@@ -15,9 +15,10 @@ public class BinarySearch {
 		System.out.println();
 		System.out.println(Arrays.toString(sortArray(arr)));
 		System.out.println();
-		System.out.println(binarySearch(arr, 1));
+		System.out.println(binarySearch(arr, 5));
 		
 	}
+	
 	
 	public int[] sortArray(int[] arr) {
 		

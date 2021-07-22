@@ -7,7 +7,7 @@ import stacks.LinkedListStack;
 public class Main {
 
 	
-//	@Test
+	@Test
 	public static void test() {
 
 		ArrayQueue queue = new ArrayQueue(5);

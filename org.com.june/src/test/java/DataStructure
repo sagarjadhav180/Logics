@@ -1,0 +1,87 @@
+
+## https://www.interviewbit.com/data-structure-interview-questions/
+## https://www.educative.io/blog/top-50-java-data-structure-interview-questions
+
+
+
+
+Use --
+  to handle large amount of data efficiently. it includes operations such as data insertion, manipulation, deletion and retrieval
+
+1.Arrays
+
+2.List -- Linear data structures (e.g. stack, queue) are easy implemented.
+          Almost any dynamic collection of items is suitable for a linked list. 
+          Example. Implement a to-do list manager. There are an unknown number of to-do items. 
+                   Moreover there are an unknown number of to-do lists
+          Insertion and deletion of elements are easy.
+          Remember you can't delete an item in the middle of an array. You'd have to shift everything.
+
+
+   2.1 Singly linked list -- same as doubly linked list only difference is in here previous field is not present
+                             Singly Linked Lists are unidirectional, meaning that they can only be traversed from head to tail.
+                             Singly linked list is preferred when we need to save memory and frequent searching is not required 
+                             -->undo button (Ctrl+x) in keyboard 
+   2.2 Doubly linked list -- each element in list is stored as a node. Node has 3 elements -- data, previous and next 
+                               data is value inside current node, previous is address of previous node and next is address of next node
+                               and entire list has head and tail. data can inserted from front or from back.  
+                             element removed is from front of the list
+                             A DLL can be traversed in both forward and backward direction.
+                             The delete operation in DLL is more efficient if pointer to the node to be deleted is given.
+                             We can quickly insert a new node before a given node.
+                             If we need better performance while searching and memory is not a limitation in this case doubly linked list
+                             is preferred. -- GPS Navigation systems, Media player
+                             
+   2.3 Array list  -- used in case to store duplicate data, null values and maintain insertion order
+   2.4 vectors     -- 
+   
+3.Stack -- a linear data structure
+           its follows LIFO.
+           support 2 basic ops -- push and pop. push add element at the top of stack and pop removes element from top 
+           it extends vector class    
+           it can implemented using array or linked list
+           real-life example of a stack --->  the pile of dinner plates that you encounter when you eat at the local cafeteria:
+           When you remove a plate from the pile, you take the plate on the top of the pile. 
+           But this is exactly the plate that was added (``inserted'') most recently to the pile by the dishwasher
+           
+4.Queue  --  A queue is a linear data structure 
+             stores elements in a FIFO (First In, First Out) order. 
+             The queue collection has two ends i.e. front & rear. 
+             The elements are added at the rear and removed from the front       
+             can be implemented using array queue or circular queue
+             Real-world examples can be seen as queues at the ticket windows and bus-stops
+             
+5.Tree --    Trees are non-linear data structures. 
+             They are often used to represent hierarchical data. 
+             For a real-world example, a hierarchical company structure uses a tree to organize   
+             following are the elements of the tree -- 
+                root node
+                children -- left child and right child
+                parent
+                leaf
+                height
+                subtree
+             most widely used tree is binary tree   
+6.Heap --    implements binary tree.
+             example -->  Heap Sorting can be applied to a sim card store where there are many customers in line. 
+             The customers who have to pay bills can be dealt with first because their work will take less time.             
+             
+7.HashTables -- non linear data structure
+                data is stored on basis of hash key               
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+                    
+             
+             
+             

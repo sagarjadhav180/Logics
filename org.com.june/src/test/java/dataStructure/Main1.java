@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 public class Main1 {
 	
 	
-	@Test
+//	@Test
 	public void run() {
 		LinkedList1 list = new LinkedList1();
 		
@@ -48,4 +48,26 @@ public class Main1 {
 	}
 	
 
+	@Test
+	public void run1() {
+		LinkedList2 list = new LinkedList2();
+		
+		list.addFromFront(0);
+		System.out.println("*****************************************************************************");
+		list.addFromFront(1);
+		System.out.println("*****************************************************************************");
+		list.addFromFront(5);
+		System.out.println("*****************************************************************************");
+		list.addFromFront(8);
+		System.out.println("*****************************************************************************");
+		list.addFromFront(6);
+
+		System.out.println(list.getNode(50));
+		
+		list.print();
+		
+
+		
+	}
+	
 }

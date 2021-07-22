@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class Main {
 
-//	@Test
+	@Test
 	public void test1() {
 		
 		SimpleHashTable simpleHashTable = new SimpleHashTable(10);

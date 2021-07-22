@@ -140,9 +140,9 @@ public abstract  class InterviewCodes {
 		System.out.println(a);
 		System.out.println(b);
 		
-		temp = a+b;
-		a = temp-a;
-		b = temp-a;
+		temp = a;
+		a = b;
+		b = temp;
 		
 		System.out.println("----AS-------");
 		System.out.println(a);
@@ -496,8 +496,8 @@ public abstract  class InterviewCodes {
 	}
 	
 	
-//	 Write a Java Program to switch to diff windows. -- in actual practise there will be scenario form parent window diff windows will open 
-//	   this code wont work since it will refer to latest driver oject
+//	 Write a Java Program to switch to diff windows. -- in actual practice there will be scenario form parent window diff windows will open 
+//	   this code wont work since it will refer to latest driver object
 //		@Test
 		public void test24() {
 			System.setProperty("webdriver.chrome.driver", ".//chromedriver_linux");
