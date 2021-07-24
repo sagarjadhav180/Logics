@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="58" started-at="2021-07-21T16:14:33 IST" finished-at="2021-07-21T16:14:33 IST">
+  <suite name="Default suite" duration-ms="81" started-at="2021-07-23T12:30:25 IST" finished-at="2021-07-23T12:30:25 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="58" started-at="2021-07-21T16:14:33 IST" finished-at="2021-07-21T16:14:33 IST">
-      <class name="sortAlgorithms.InsertionSort">
-        <test-method status="PASS" signature="test1()[pri:0, instance:sortAlgorithms.InsertionSort@33b37288]" name="test1" duration-ms="10" started-at="2021-07-21T16:14:33 IST" finished-at="2021-07-21T16:14:33 IST">
+    <test name="Default test" duration-ms="81" started-at="2021-07-23T12:30:25 IST" finished-at="2021-07-23T12:30:25 IST">
+      <class name="dataStructure.temp">
+        <test-method status="PASS" signature="test29()[pri:0, instance:dataStructure.temp@33b37288]" name="test29" duration-ms="17" started-at="2021-07-23T12:30:25 IST" finished-at="2021-07-23T12:30:25 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test1 -->
-      </class> <!-- sortAlgorithms.InsertionSort -->
+        </test-method> <!-- test29 -->
+      </class> <!-- dataStructure.temp -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

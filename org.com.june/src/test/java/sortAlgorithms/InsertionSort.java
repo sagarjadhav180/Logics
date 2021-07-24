@@ -10,19 +10,33 @@ public class InsertionSort {
 	void test1() {
 		int[] array = {20, 35, -15, 7, 55, 1, -22};
 		
-		int n = array.length;  
-        for (int j = 1; j < n; j++) {  
-            int key = array[j];  
-            int i = j-1;  
-            while ( (i > -1) && ( array [i] > key ) ) {  
-                array [i+1] = array [i];  
-                i--;  
-            }  
-            array[i+1] = key;  
-        }  
+		
+		
+        int key, value;
+		
+		for(int i=1; i < array.length; i++) {
+			
+			key = i;
+			value = array[i];
+			
+			while(key > 0 && value < array[key - 1]) {
+				
+				array[key] = array[key - 1];
+				key--;
+				
+			}
+			
+			array[key] = value;
+			
+		}
+		
+		
 		System.out.println(Arrays.toString(array));
 	}
 	
-	
+	@Test
+	void test2() {
+
+	}
 	
 }

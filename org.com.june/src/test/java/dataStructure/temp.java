@@ -558,7 +558,7 @@ public class temp {
 	
 	
 	//selection sort
-	@Test
+//	@Test
 	void test26() {
 		int[] arr = {20, 35, -15, 7, 55, 1, -22};
 		
@@ -579,14 +579,93 @@ public class temp {
 	
 	
 	
+//	@Test
+	void test27() {
+		int[] arr1 = { 1, 12, 14, 17, 23 };
+		int[] arr2 = { 11, 19, 27 };
+		
+		int n1 = arr1.length;
+		int n2 = arr2.length;
+		
+		
+		int[] arr3 = new int[arr1.length+arr2.length];
+		
+		
+		int i = 0, j = 0, k = 0;
+		
+		while(i < n1 && j < n2) {
+			if(arr1[i] < arr2[j]) {
+				arr3[k] = arr1[i];
+				i++;
+			}else {
+				arr3[k] = arr2[j];
+				j++;
+			}
+			k++;
+		}
+		
+		while(i < n1) {
+			arr3[k] = arr1[i];
+			k++;
+			i++;
+		}
+		while(j < n2) {
+			arr3[k] = arr2[j];
+			k++;
+			j++;
+		}
+		
+		System.out.print(Arrays.toString(arr3));
+		
+		System.out.println();
+	}
 	
 	
+//	@Test
+	void test28() {
+		
+		int[] array = {20, 35, -15, 7, 55, 1, -22};
+		
+		
+		for(int i=1;i<array.length;i++) {
+			
+			int key = i;
+			int val = array[i];
+			
+			while(key > 0 && array[key-1] > val) {
+				array[key] = array[key - 1];
+				key--;
+			}
+			array[key] = val;
+			
+		}
+		System.out.println(Arrays.toString(array));
+	}
 	
 	
-	
-	
-	
-	
+//	@Test
+	void test29() {
+		
+		int[] arr = {20, 35, -15, 7, 55, 1, -22};
+		
+		for(int i=arr.length-1;i>0;i--) {
+			
+			int largest = 0;
+			
+			for(int j=1;j<=i;j++) {
+				if(arr[j] > arr[largest])
+					largest = j;
+			}
+			
+			int temp = arr[largest];
+			arr[largest] = arr[i];
+			arr[i] = temp;
+			
+		}
+		
+		System.out.println(Arrays.toString(arr));
+		
+	}
 	
 	
 	
